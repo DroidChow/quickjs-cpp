@@ -17,7 +17,7 @@ set(QUICKJS_SOURCE
 
 set(CPPQUICKJS_SOURCE
         quickjscpp/quickjscpp.cpp
-        )
+        example/c_api_example.cpp example/c_api_example.h example/cpp_api_example.cpp example/cpp_api_example.h)
 
 add_executable(quickjs_cpp
         ${QUICKJS_SOURCE}
