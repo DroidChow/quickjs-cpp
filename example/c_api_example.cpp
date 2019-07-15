@@ -83,9 +83,14 @@ void run_c_api_main() {
     eval_file(ctx, jspath, eval_flags);
 
     // bignum
-    eval_file(ctx, "../example/qjscalc.js", JS_EVAL_TYPE_GLOBAL);
-
-    eval_file(ctx, "../example/pi.js", JS_EVAL_TYPE_GLOBAL);
+    /*
+      See QuickJS TODO
+      - bignum:
+          - fix div/pow div by zero exception in doc & code in bigint mode
+          - fix Atomics support
+    */
+//    eval_file(ctx, "../example/qjscalc.js", JS_EVAL_TYPE_GLOBAL);
+//    eval_file(ctx, "../example/pi.js", JS_EVAL_TYPE_GLOBAL);
 
     // free
     js_std_free_handlers(rt);
