@@ -1,0 +1,31 @@
+diff --git a/quickjs/quickjs.h b/quickjs/quickjs.h
+index 3dd8760..98c8adb 100644
+--- a/quickjs/quickjs.h
++++ b/quickjs/quickjs.h
+@@ -555,7 +555,7 @@ void __JS_FreeValue(JSContext *ctx, JSValue v);
+ static inline void JS_FreeValue(JSContext *ctx, JSValue v)
+ {
+     if (JS_VALUE_HAS_REF_COUNT(v)) {
+-        JSRefCountHeader *p = JS_VALUE_GET_PTR(v);
++        JSRefCountHeader *p = (JSRefCountHeader*)JS_VALUE_GET_PTR(v);
+         if (--p->ref_count <= 0) {
+             __JS_FreeValue(ctx, v);
+         }
+@@ -565,7 +565,7 @@ void __JS_FreeValueRT(JSRuntime *rt, JSValue v);
+ static inline void JS_FreeValueRT(JSRuntime *rt, JSValue v)
+ {
+     if (JS_VALUE_HAS_REF_COUNT(v)) {
+-        JSRefCountHeader *p = JS_VALUE_GET_PTR(v);
++        JSRefCountHeader *p = (JSRefCountHeader*)JS_VALUE_GET_PTR(v);
+         if (--p->ref_count <= 0) {
+             __JS_FreeValueRT(rt, v);
+         }
+@@ -575,7 +575,7 @@ static inline void JS_FreeValueRT(JSRuntime *rt, JSValue v)
+ static inline JSValue JS_DupValue(JSContext *ctx, JSValueConst v)
+ {
+     if (JS_VALUE_HAS_REF_COUNT(v)) {
+-        JSRefCountHeader *p = JS_VALUE_GET_PTR(v);
++        JSRefCountHeader *p = (JSRefCountHeader*)JS_VALUE_GET_PTR(v);
+         p->ref_count++;
+     }
+     return (JSValue)v;
