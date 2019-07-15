@@ -1,6 +1,6 @@
 # quickjs-cpp
 
-C++ demo for use QuickJS
+C++ demo for QuickJS usage
 
 QuickJS version is 2019-07-09
 
