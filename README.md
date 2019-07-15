@@ -29,4 +29,4 @@ C++ Wrapper for QuickJS
 
 Wechat
 
-![group](./image/group.jpg)
+![group](./image/group.png)
