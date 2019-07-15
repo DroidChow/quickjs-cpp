@@ -82,6 +82,12 @@ void run_c_api_main() {
     const char *jspath = "../example/hello.js";
     eval_file(ctx, jspath, eval_flags);
 
+    // bignum
+    eval_file(ctx, "../example/qjscalc.js", JS_EVAL_TYPE_GLOBAL);
+
+    eval_file(ctx, "../example/pi.js", JS_EVAL_TYPE_GLOBAL);
+
+    // free
     js_std_free_handlers(rt);
     JS_FreeContext(ctx);
     JS_FreeRuntime(rt);

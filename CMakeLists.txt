@@ -3,7 +3,9 @@ project(quickjs_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_compile_definitions(CONFIG_VERSION="2019-07-09")
+add_compile_definitions(CONFIG_VERSION="2019-07-09" )
+add_compile_definitions(CONFIG_BIGNUM)
+
 
 set(QUICKJS_SOURCE
         quickjs/bjson.c
