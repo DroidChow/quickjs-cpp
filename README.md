@@ -23,3 +23,10 @@ Open project file and build.
 ## Plan
 
 C++ Wrapper for QuickJS
+
+
+## Group
+
+Wechat
+
+![group](./image/group.jpg)
