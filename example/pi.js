@@ -26,11 +26,6 @@ function calc_pi(prec) {
             c = (a + b) >> 1;
             [P1, Q1, G1] = chud_bs(a, c, true);
             [P2, Q2, G2] = chud_bs(c, b, need_G);
-            console.log('<');
-            console.log(P1*Q2);
-            console.log(P2*Q1);
-            console.log(P1 * Q2 + P2 * G1);
-            console.log('>');
             P = P1 * Q2 + P2 * G1;
             Q = Q1 * Q2;
             if (need_G)
@@ -38,12 +33,6 @@ function calc_pi(prec) {
             else
                 G = 0;
         }
-
-        // console.log('<');
-        // console.log(P);
-        // console.log(Q);
-        // console.log(G);
-        // console.log('>');
         return [P, Q, G];
     }
 
@@ -59,15 +48,13 @@ function calc_pi(prec) {
 
 (function() {
     var r, n_digits, n_bits;
-    console.log(BigInt);
-    calc_pi(1);
 
-    // n_digits = 1000;
-    // n_bits = Math.ceil(n_digits * Math.log2(10));
-    // /* we add more bits to reduce the probability of bad rounding for
-    //    the last digits */
-    // BigFloatEnv.setPrec( () => {
-    //     r = calc_pi();
-    //     print(r.toFixed(n_digits, BigFloatEnv.RNDZ));
-    // }, n_bits + 32);
+    n_digits = 1000;
+    n_bits = Math.ceil(n_digits * Math.log2(10));
+    /* we add more bits to reduce the probability of bad rounding for
+       the last digits */
+    BigFloatEnv.setPrec( () => {
+        r = calc_pi();
+        print(r.toFixed(n_digits, BigFloatEnv.RNDZ));
+    }, n_bits + 32);
 })();
