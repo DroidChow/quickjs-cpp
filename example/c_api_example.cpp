@@ -82,6 +82,10 @@ void run_c_api_main() {
     const char *jspath = "../example/hello.js";
     eval_file(ctx, jspath, eval_flags);
 
+    const char *str1 = "foo();\n" ;
+    eval_buf(ctx, str1, strlen(str1), "<input>", JS_EVAL_TYPE_MODULE);
+
+
     // bignum
     /*
       See QuickJS TODO
